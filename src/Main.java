@@ -3,13 +3,9 @@
 public class Main {
     public static void main(String[] args) {
 
-        Annotations annotations = new Annotations();
+        PassByValue a = new PassByValue();
 
-        try {
-            System.out.println(VerifierRunner.run(annotations, "print", "testaaaaaaaa"));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        a.PassByValueStudy();
 
 
 
