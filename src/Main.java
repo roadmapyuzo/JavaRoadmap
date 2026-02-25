@@ -3,9 +3,9 @@
 public class Main {
     public static void main(String[] args) {
 
-        PassByValue a = new PassByValue();
+        MethodChaining mc = new MethodChaining();
 
-        a.PassByValueStudy();
+        mc.settingA(10).printResult().finalPrint();
 
 
 
