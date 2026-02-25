@@ -3,8 +3,15 @@
 public class Main {
     public static void main(String[] args) {
 
-        LambdaExpressions test =  new LambdaExpressions();
-        test.run();
+        Annotations annotations = new Annotations();
+
+        try {
+            System.out.println(VerifierRunner.run(annotations, "print", "testaaaaaaaa"));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+
 
     }
 }
