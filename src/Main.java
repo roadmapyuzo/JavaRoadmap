@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
 
         IO_Operations ioOperations = new IO_Operations();
-        ioOperations.createTXT();
+        ioOperations.pathOperations();
 
 
 
