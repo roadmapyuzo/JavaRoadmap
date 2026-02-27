@@ -3,8 +3,8 @@
 public class Main {
     public static void main(String[] args) {
 
-        IO_Operations ioOperations = new IO_Operations();
-        ioOperations.pathOperations();
+        MultiThreading object =  new MultiThreading();
+        object.sameInstanceOfRunnableInDifferentThreads();
 
 
 
