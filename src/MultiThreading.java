@@ -44,4 +44,73 @@ public class MultiThreading {
 
     }
 
+    public void concurrencyOfThreads() {
+
+        SecondRunnableClass runner  = new SecondRunnableClass();
+
+        Thread newThread = new Thread(runner);
+        Thread newThread2 = new Thread(runner);
+        Thread newThread3= new Thread(runner);
+        Thread newThread4= new Thread(runner);
+        Thread newThread5= new Thread(runner);
+
+        newThread.start();
+        newThread2.start();
+        newThread3.start();
+        newThread4.start();
+        newThread5.start();
+
+    }
+
+    public void concurrencyOfThreads2() {
+
+        CopyOfSecondRunnerWithSynchronized runner  = new CopyOfSecondRunnerWithSynchronized();
+
+        Thread newThread = new Thread(runner);
+        Thread newThread2 = new Thread(runner);
+        Thread newThread3= new Thread(runner);
+        Thread newThread4= new Thread(runner);
+        Thread newThread5= new Thread(runner);
+
+        newThread.start();
+        newThread2.start();
+        newThread3.start();
+        newThread4.start();
+        newThread5.start();
+
+    }
+
+    /// synchronized on methods make it synchronized per instance of the object
+    /// synchronized on class make it synchronized per jvm
+
+    public static void synchronizedOnStaticResource() {
+
+        synchronized (MultiThreading.class) {
+            System.out.println(Thread.currentThread().getName() + " " + Thread.currentThread().getId());
+        }
+
+    }
+
+    public void synchronizedPlusConcurrency() {
+
+        SynchonizedPlusConcurrency runner  = new SynchonizedPlusConcurrency();
+
+        Thread newThread = new Thread(runner);
+        Thread newThread2 = new Thread(runner);
+        Thread newThread3= new Thread(runner);
+        Thread newThread4= new Thread(runner);
+        Thread newThread5= new Thread(runner);
+
+        System.out.println("Tabuada do 2 em ordem aleatoria");
+
+        newThread.start();
+        newThread2.start();
+        newThread3.start();
+        newThread4.start();
+        newThread5.start();
+
+    }
+
 }
+
+
