@@ -111,6 +111,75 @@ public class MultiThreading {
 
     }
 
+    ///  List is not thread safe, so its possible that some insertions fail. on this example: size expected -> 500, after running it for some attempts, i got 466
+    public void synchronizedOnList() {
+
+        SynchronizedOnlistRunner runner  = new SynchronizedOnlistRunner();
+
+        Thread newThread = new Thread(runner);
+        Thread newThread2 = new Thread(runner);
+        Thread newThread3= new Thread(runner);
+        Thread newThread4= new Thread(runner);
+        Thread newThread5= new Thread(runner);
+
+        newThread.start();
+        newThread2.start();
+        newThread3.start();
+        newThread4.start();
+        newThread5.start();
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        System.out.println(Main.list.size());
+
+
+    }
+
+    ///  same but with collections synchronized list
+    public void synchronizedOnList2() {
+
+        Thread newThread = new Thread(() -> {  for (int i = 0; i < 100; i++) {
+            Main.list2.add("Hello");
+        }});
+        Thread newThread2 = new Thread(() -> {  for (int i = 0; i < 100; i++) {
+            Main.list2.add("Hello");
+        }});
+        Thread newThread3= new Thread(() -> {  for (int i = 0; i < 100; i++) {
+            Main.list2.add("Hello");
+        }});
+        Thread newThread4= new Thread(() -> {  for (int i = 0; i < 100; i++) {
+            Main.list2.add("Hello");
+        }});
+        Thread newThread5= new Thread(() -> {  for (int i = 0; i < 100; i++) {
+            Main.list2.add("Hello");
+        }});
+
+        newThread.start();
+        newThread2.start();
+        newThread3.start();
+        newThread4.start();
+        newThread5.start();
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        System.out.println(Main.list2.size());
+
+
+    }
+
+    ///  more examples of collections to work with multi threading -> concurrentHashMap -> copyOnWriteList (good when there is a lot of reading and almost never insertions)
+    ///  LinkedBlockingQueue
+
 }
+
+
 
 
