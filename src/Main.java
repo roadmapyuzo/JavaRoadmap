@@ -11,8 +11,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        MultiThreading object =  new MultiThreading();
-        object.synchronizedOnList2();
+        AtomicClasses object = new AtomicClasses();
+        object.run();
 
 
 
