@@ -178,6 +178,19 @@ public class MultiThreading {
     ///  more examples of collections to work with multi threading -> concurrentHashMap -> copyOnWriteList (good when there is a lot of reading and almost never insertions)
     ///  LinkedBlockingQueue
 
+    public void yieldRunner() {
+
+        YieldRuuner runner  = new YieldRuuner();
+
+        Thread newThread = new Thread(runner);
+        Thread newThread2 = new Thread(runner);
+
+        newThread.start();
+        newThread2.start();
+
+    }
+
+
 }
 
 

@@ -9,10 +9,16 @@ public class Main {
     public static List<String> list =  new ArrayList<String>();
     public static List<String> list2 = Collections.synchronizedList(new ArrayList<String>());
 
+
+
     public static void main(String[] args) {
 
-        AtomicClasses object = new AtomicClasses();
-        object.run();
+        Volatile object =  new Volatile();
+        try {
+            object.runErrorExample();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
 
