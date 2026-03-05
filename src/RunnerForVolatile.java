@@ -1,7 +1,9 @@
 public class RunnerForVolatile implements Runnable {
 
-    public  int numberForVolatile = 0;
-    public  boolean flag = false;
+    ///  volatile guarantees that the thread will see the most recently value
+
+    public  volatile int numberForVolatile = 0;
+    public  volatile boolean flag = false;
 
     public void run() {
 

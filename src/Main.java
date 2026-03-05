@@ -13,12 +13,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Volatile object =  new Volatile();
-        try {
-            object.runErrorExample();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        ExecutorsClass test = new ExecutorsClass();
+
+        test.submit();
 
 
 
