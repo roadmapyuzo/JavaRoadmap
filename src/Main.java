@@ -13,9 +13,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ExecutorsClass test = new ExecutorsClass();
+        ExecutorsClass2 test = new ExecutorsClass2();
 
-        test.submit();
+        test.cachedThreadPool();
 
 
 
