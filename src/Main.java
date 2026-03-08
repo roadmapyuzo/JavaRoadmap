@@ -13,9 +13,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ExecutorsClass2 test = new ExecutorsClass2();
+        ScheduledExecutors test = new ScheduledExecutors();
 
-        test.cachedThreadPool();
+        test.executeFixedDelay();
 
 
 

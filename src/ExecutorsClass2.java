@@ -1,7 +1,7 @@
 import java.sql.Time;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class ExecutorsClass2 {
@@ -12,6 +12,16 @@ public class ExecutorsClass2 {
 
             System.out.println(Thread.currentThread().getName() + " esta é a execução: ");
 
+
+        }
+
+    }
+
+    public static class taskCallable implements Callable<String> {
+
+        public String call() {
+
+            return Thread.currentThread().getName() + " This one is the callable return";
 
         }
 
@@ -72,6 +82,42 @@ public class ExecutorsClass2 {
             executor.submit(new task());
 
             executor.awaitTermination(1, TimeUnit.SECONDS);
+            executor.shutdown();
+
+        }  catch (Exception e) {
+            throw new RuntimeException(e);
+        }  finally {
+            if (executor != null) {
+                executor.shutdownNow();
+            }
+        }
+
+    }
+
+    public void invokeAll() {
+
+        ExecutorService executor = null;
+
+        try {
+
+            executor = Executors.newCachedThreadPool();
+            List<taskCallable> listOfTasks = new ArrayList<taskCallable>();
+
+            for (int i = 0; i < 10; i++) {
+                taskCallable task = new taskCallable();
+                listOfTasks.add(task);
+            }
+
+            ///  can be used with a list of callable
+            List<Future<String>> res = executor.invokeAll(listOfTasks);
+
+            executor.awaitTermination(1, TimeUnit.SECONDS);
+
+            for (Future<String> future : res) {
+
+                System.out.println(future.get());
+
+            }
             executor.shutdown();
 
         }  catch (Exception e) {
