@@ -13,9 +13,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ScheduledExecutors test = new ScheduledExecutors();
-
-        test.executeFixedDelay();
+        CyclicBarriers test =  new CyclicBarriers();
+        test.run2();
 
 
 
