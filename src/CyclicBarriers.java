@@ -129,4 +129,67 @@ public class CyclicBarriers {
 
     }
 
+    /// the barrier is cyclic because it can be reused
+    public void run3() {
+
+        Runnable finalization = () -> {
+
+            Double result = 0.0;
+
+            result += queue.poll();
+            result += queue.poll();
+            result += queue.poll();
+
+            System.out.println("Your result is: "+result);
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        };
+
+        CyclicBarrier barrier = new CyclicBarrier(3,  finalization);
+
+        Runnable r1 = () -> {
+
+            while (true) {
+                queue.add(100d * 5d);
+                System.out.println("I will reach the barrier and wait");
+                await(barrier);
+            }
+
+        };
+
+        Runnable r2 = () -> {
+
+            while (true) {
+                queue.add(1000d * 10d);
+                System.out.println("I will reach the barrier and wait");
+                await(barrier);
+            }
+
+        };
+
+        Runnable r3 = () -> {
+
+            while (true) {
+                queue.add(20000d / 2d);
+                System.out.println("I will reach the barrier and wait");
+                await(barrier);
+            }
+
+        };
+
+        Thread t1 = new Thread(r1);
+        Thread t2 = new Thread(r2);
+        Thread t3 = new Thread(r3);
+        t1.start();
+        t2.start();
+        t3.start();
+
+
+
+    }
+
 }

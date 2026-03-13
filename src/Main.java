@@ -13,8 +13,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        CyclicBarriers test =  new CyclicBarriers();
-        test.run2();
+        CountDownLatchClass test =  new CountDownLatchClass();
+        test.run();
 
 
 
