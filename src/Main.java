@@ -14,7 +14,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Semaphores object =  new Semaphores();
+        Locks object =  new Locks();
         object.execute2();
 
 
