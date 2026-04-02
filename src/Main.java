@@ -14,8 +14,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Locks object =  new Locks();
-        object.execute2();
+        Exchangers object =  new Exchangers();
+        object.execute();
 
 
 
