@@ -14,7 +14,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Exchangers object =  new Exchangers();
+        ProducerConsumer object =  new ProducerConsumer();
         object.execute();
 
 
