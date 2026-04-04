@@ -14,7 +14,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ProducerConsumer object =  new ProducerConsumer();
+        ProducerConsumer3 object =  new ProducerConsumer3();
         object.execute();
 
 
